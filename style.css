@@ -1,0 +1,327 @@
+/* =========================================================
+   @mel.englishfortech — página de links
+   Estilo: Café & Caderno
+   Para mudar as cores, edite só as variáveis abaixo.
+   ========================================================= */
+
+:root {
+  /* Cores */
+  --bg: #F5EFE6;          /* fundo bege */
+  --paper: #FFFDF9;       /* cartão do guia */
+  --ink: #3A2E26;         /* texto principal (marrom escuro) */
+  --muted: #6B5B4E;       /* texto secundário */
+  --accent: #9C4F46;      /* rosa queimado (botão, números) */
+  --accent-dark: #7E3C34; /* botão ao passar o mouse */
+  --rose: #F3DDD6;        /* etiqueta "freebie" */
+  --rose-ink: #6B3029;
+  --line: #E0D2C2;        /* linhas dos links */
+  --border: #E6D9C9;
+  --shadow: #E8D5C4;      /* sombra "de papel" do cartão */
+  --input-line: #CDB9A6;
+
+  /* Fontes */
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Manrope', system-ui, -apple-system, sans-serif;
+  --mono: 'Space Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg);
+  /* linhas de caderno bem suaves */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 31px,
+    rgba(150, 120, 90, 0.08) 31px 32px
+  );
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-dark); }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.page {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 48px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ---------- Topo ---------- */
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.photo {
+  flex: none;
+  width: 88px;
+  height: 108px;
+  border-radius: 44px 44px 14px 14px; /* formato de arco */
+  background: var(--shadow);
+  object-fit: cover;
+  /* estilos do espaço reservado (somem quando vira <img>) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.05;
+}
+
+.handle {
+  font-family: var(--mono);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.role {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.bio {
+  margin: 2;
+  font-family: var(--serif);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ---------- Guia gratuito ---------- */
+
+.freebie {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 6px 22px 22px 22px;
+  box-shadow: 6px 6px 0 var(--shadow);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.freebie-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--rose);
+  color: var(--rose-ink);
+}
+
+.meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.freebie h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 1.2;
+}
+
+.freebie-desc {
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.field input {
+  height: 46px;
+  padding: 0 2px;
+  border: none;
+  border-bottom: 1.5px solid var(--input-line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px; /* 16px evita o zoom automático no iPhone */
+}
+
+.field input::placeholder { color: #9A8A7C; }
+
+.field input:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+  box-shadow: 0 1.5px 0 var(--accent);
+}
+
+.button {
+  margin-top: 6px;
+  height: 52px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #FFFFFF;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover { background: var(--accent-dark); }
+.button:active { transform: translateY(1px); }
+
+.consent {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.form-status {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
+.form-status:empty { display: none; }
+
+/* ---------- Links ---------- */
+
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links li + li a { border-top: 1px solid var(--line); }
+
+.links a {
+  min-height: 60px;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.links a:hover { color: var(--accent-dark); }
+
+.num {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.label { flex: 1; }
+
+.arrow {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.links a:hover .arrow { transform: translateX(4px); }
+
+/* ---------- Rodapé ---------- */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.footer a { color: var(--muted); }
+
+/* ---------- Telas bem pequenas ---------- */
+
+@media (max-width: 360px) {
+  .photo { width: 72px; height: 90px; }
+  h1 { font-size: 28px; }
+  .bio { font-size: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* GIF sobre o canto da foto */
+.photo-wrap {
+  position: relative;
+  flex: none;
+}
+.photo-sticker {
+  position: absolute;
+  right: 60px;   /* mais negativo = mais para fora da foto */
+  bottom: 50px;  /* mais negativo = mais para baixo */
+  width: 60px;    /* tamanho do GIF */
+  height: auto;
+  pointer-events: none;
+}
+
+/* Para quem desativa animações no celular */
+@media (prefers-reduced-motion: reduce) {
+  .photo-sticker { display: none; }
+}

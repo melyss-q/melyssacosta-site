@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Melyssa Costa · @mel.englishfortech</title>
+  <meta name="description" content="Inglês e dados para mulheres que estão começando em tech. Baixe o guia gratuito com 50 termos em inglês de vagas de dados.">
+
+  <meta property="og:title" content="Melyssa Costa · @mel.englishfortech">
+  <meta property="og:description" content="Inglês e dados para mulheres que estão começando em tech.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="Melyssa.jpg">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/csSe quiser, já começo pelo passo 1. Os links que eu não souber deixo como [SEU LINK] para você preencher depois.s2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+
+    <!-- ===== TOPO ===== -->
+    <header class="profile">
+      <div class="photo-wrap">
+         <img src="assets/foto.jpg" alt="Foto de Melyssa Costa" class="photo">
+         <img src="assets/sticker.gif" alt="" class="photo-sticker" aria-hidden="true">
+      </div>
+
+      <div class="profile-text">
+        <h1>Melyssa <em>Costa</em></h1>
+        <a class="handle" href="https://www.instagram.com/mel.englishfortech/" target="_blank" rel="noopener">@mel.englishfortech</a>
+        <p class="role">Ex-teacher de inglês agora em Tech & Dados ✨👩🏻‍💻 </p>
+      </div>
+    </header>
+
+    <p class="bio"><strong>Inglês</strong> na área de <strong>dados</strong> & <strong>tecnologia</strong>, de forma <em>simples</em> e <em>objetiva</em>.</p>
+
+    <!-- ===== GUIA GRATUITO (ISCA) ===== -->
+    <section class="freebie" aria-labelledby="freebie-title">
+      <div class="freebie-meta">
+        <span class="tag">✨ STARTING POINT</span>
+        <span class="meta">PDF · 31 páginas</span>
+      </div>
+
+      <h2 id="freebie-title">Glossário: 25 termos em inglês de vagas de dados</h2>
+      <p class="freebie-desc">Os termos que mais aparecem nas vagas, com pronúncia, significado e exemplo. Deixe seu nome e e-mail e receba o PDF.</p>
+
+      <!-- MailerLite ou Brevo -->
+      <form id="guia-form" class="form" action="[URL DO FORMULÁRIO]" method="post">
+        <label class="field">
+          Seu nome
+          <input type="text" name="name" placeholder="Nome" autocomplete="given-name" required>
+        </label>
+
+        <label class="field">
+          Seu melhor e-mail
+          <input type="email" name="email" placeholder="seu@email.com" autocomplete="email" required>
+        </label>
+
+        <button type="submit" class="button">Baixar o glossário</button>
+
+        <p class="consent">Ao se inscrever, você aceita receber meus e-mails. Dá para sair quando quiser. <a href="privacidade.html">Política de privacidade</a>.</p>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- ===== LINKS ===== -->
+    <nav aria-label="Links">
+      <ul class="links">
+        <li>
+          <a href="https://www.linkedin.com/in/melyssa-costa" target="_blank" rel="noopener">
+            <span class="num">01</span>
+            <span class="label">Meu LinkedIn</span>
+            <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/melyss-q" target="_blank" rel="noopener">
+            <span class="num">02</span>
+            <span class="label">Siga meu GitHub!</span>
+            <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </li>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer class="footer">
+      <span>Contato: contato@melyssacosta.com.br</span>
+      <a href="privacidade.html">privacidade</a>
+    </footer>
+
+  </main>
+
+  <script>
+    // Enquanto o formulário não estiver conectado, evita enviar para um endereço inválido.
+    const form = document.getElementById('guia-form');
+    const status = document.getElementById('form-status');
+    form.addEventListener('submit', (event) => {
+      if (form.getAttribute('action').includes('[')) {
+        event.preventDefault();
+        status.textContent = 'O formulário ainda não está conectado. Volte em breve!';
+      }
+    });
+  </script>
+</body>
+</html>
