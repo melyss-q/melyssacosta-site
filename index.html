@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Melyssa Costa · @mel.englishfortech</title>
-  <meta name="description" content="Inglês e dados para mulheres que estão começando em tech. Baixe o guia gratuito com 50 termos em inglês de vagas de dados.">
+  <meta name="description" content="Inglês e dados para mulheres que estão começando em tech. Baixe o guia gratuito com 25 termos em inglês de vagas de dados.">
 
   <meta property="og:title" content="Melyssa Costa · @mel.englishfortech">
   <meta property="og:description" content="Inglês e dados para mulheres que estão começando em tech.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="Melyssa.jpg">
+  <meta property="og:image" content="https://links.melyssacosta.com.br/assets/foto.jpg">
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
@@ -18,6 +18,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- Estilos extras do formulário do MailerLite (carregando, erro e sucesso) -->
+  <style>
+    .ml-form-embedSubmit { display: flex; flex-direction: column; }
+    .ml-form-embedSubmit button.loading { display: none; opacity: .75; cursor: wait; }
+    .ml-error input { border-bottom-color: #B3261E !important; box-shadow: 0 1.5px 0 #B3261E !important; }
+    .success-box { padding: 6px 0 2px; }
+    .success-box h3 { margin: 0 0 6px; font-family: var(--serif); font-weight: 600; font-size: 22px; }
+    .success-box p { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.5; }
+  </style>
 </head>
 <body>
   <main class="page">
@@ -48,23 +58,48 @@
       <h2 id="freebie-title">Glossário: 25 termos em inglês de vagas de dados</h2>
       <p class="freebie-desc">Os termos que mais aparecem nas vagas, com pronúncia, significado e exemplo. Deixe seu nome e e-mail e receba o PDF.</p>
 
-      <!-- MailerLite ou Brevo -->
-      <form id="guia-form" class="form" action="[URL DO FORMULÁRIO]" method="post">
-        <label class="field">
-          Seu nome
-          <input type="text" name="name" placeholder="Nome" autocomplete="given-name" required>
-        </label>
+      <!-- Formulário conectado ao MailerLite (grupo "Guia 25 termos") -->
+      <div id="mlb2-47353747" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-47353747">
+        <div class="ml-form-embedBody row-form">
+          <form class="ml-block-form form" action="https://assets.mailerlite.com/jsonp/2726584/forms/201811321700746542/subscribe" data-code="" method="post" target="_blank">
+            <div class="ml-form-formContent form">
+              <div class="ml-form-fieldRow">
+                <div class="ml-field-group ml-field-name">
+                  <label class="field">
+                    Seu nome
+                    <input type="text" class="form-control" name="fields[name]" placeholder="Nome" autocomplete="given-name" required>
+                  </label>
+                </div>
+              </div>
+              <div class="ml-form-fieldRow ml-last-item">
+                <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                  <label class="field">
+                    Seu melhor e-mail
+                    <input type="email" class="form-control" name="fields[email]" placeholder="seu@email.com" autocomplete="email" required>
+                  </label>
+                </div>
+              </div>
+            </div>
 
-        <label class="field">
-          Seu melhor e-mail
-          <input type="email" name="email" placeholder="seu@email.com" autocomplete="email" required>
-        </label>
+            <input type="hidden" name="ml-submit" value="1">
+            <input type="hidden" name="anticsrf" value="true">
 
-        <button type="submit" class="button">Baixar o glossário</button>
+            <div class="ml-form-embedSubmit">
+              <button type="submit" class="primary button">Baixar o glossário</button>
+              <button disabled="disabled" style="display: none;" type="button" class="loading button">Enviando…</button>
+            </div>
 
-        <p class="consent">Ao se inscrever, você aceita receber meus e-mails. Dá para sair quando quiser. <a href="privacidade.html">Política de privacidade</a>.</p>
-        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-      </form>
+            <p class="consent">Ao se inscrever, você aceita receber meus e-mails. Dá para sair quando quiser. <a href="privacidade.html">Política de privacidade</a>.</p>
+          </form>
+        </div>
+
+        <div class="ml-form-successBody row-success" style="display: none" role="status" aria-live="polite">
+          <div class="success-box">
+            <h3>Prontinho! ✨</h3>
+            <p><strong>O guia está a caminho do seu e-mail.</strong> Confira também a caixa de spam.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ===== LINKS ===== -->
@@ -84,7 +119,6 @@
             <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </li>
-        </li>
       </ul>
     </nav>
 
@@ -96,16 +130,17 @@
 
   </main>
 
+  <!-- MailerLite: mostra a mensagem de sucesso depois da inscrição -->
   <script>
-    // Enquanto o formulário não estiver conectado, evita enviar para um endereço inválido.
-    const form = document.getElementById('guia-form');
-    const status = document.getElementById('form-status');
-    form.addEventListener('submit', (event) => {
-      if (form.getAttribute('action').includes('[')) {
-        event.preventDefault();
-        status.textContent = 'O formulário ainda não está conectado. Volte em breve!';
-      }
-    });
+    function ml_webform_success_47353747() {
+      var box = document.querySelector('.ml-subscribe-form-47353747');
+      box.querySelector('.row-success').style.display = 'block';
+      box.querySelector('.row-form').style.display = 'none';
+    }
+  </script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+  <script>
+    fetch("https://assets.mailerlite.com/jsonp/2726584/forms/201811321700746542/takel");
   </script>
 </body>
 </html>
